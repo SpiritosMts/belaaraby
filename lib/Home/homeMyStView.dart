@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myVoids.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'homeCtr.dart';
 
@@ -64,103 +65,112 @@ class _MyStoresViewState extends State<MyStoresView> {
 
               }
             },
-            child: SizedBox(
-              height: 180,
-              child: Card(
-                color: blueColHex2,
+            child: Container(
+              //color: Colors.green,
 
-                margin: const EdgeInsets.all(8.0),
-                elevation: 3,
-                child: ListTile(
-                  /// name
-                  title: Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 3.0),
-                    child: Text('${store.name}', style: const TextStyle(fontWeight: FontWeight.bold)),
-                  ),
+              child: SizedBox(
 
-                  /// info
-                  subtitle: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
-                    child: RichText(
-                      //locale: Locale(currLang!),
-                      textAlign: TextAlign.start,
-                      softWrap: true,
-                      text: TextSpan(children: [
-                        WidgetSpan(
-                            child: Text('${'address local'.tr}:  ${store.address}',
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                height: 2,
-                              ),
-                            )
-                        ),
-                        const TextSpan(text: '\n'),
+                height: 150,
+                child: Card(
+                  color: blueColHex2,
 
-                        WidgetSpan(
-                            child: Text('${'tax number'.tr}:  ${store.tax}',
-                              style: const TextStyle(
-                                fontSize: 13,
-                                height: 1.5,
-                              ),
-                            )
-                        ),
-                        const TextSpan(text: '\n'),
-
-                        WidgetSpan(
-                            child: Text('${'State'.tr}:  $acceptedState',
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                height: 1.5,
-                              ),
-                            )
-                        ),
-
-                      ]),
+                  margin: const EdgeInsets.all(8.0),
+                  elevation: 3,
+                  child: ListTile(
+                    /// name
+                    title: Padding(
+                      padding: const EdgeInsets.fromLTRB(0.0, 13.0, 0.0, 3.0),
+                      child: Text('${store.name}',
+                          style:  TextStyle(
+                              fontWeight: FontWeight.bold,
+                            fontSize: 21.sp,
+                          )
+                      ),
                     ),
-                  ),
 
-                  /// rating
-                  trailing: Container(
-                    //color: Colors.red,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-                      child: SizedBox(
-                        width: 70,
-                        height: 70,
-                        child: Column(
-                          //crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ///rating
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                //stars.toStringAsFixed(1)
-                                Text('${store.stars}', style: const TextStyle(fontSize: 20)),
-                                const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                  size: 25,
-                                ),
-                              ],
-                            ), //star
-                            const SizedBox(
-                              height: 7,
-                            ),
+                    /// info
+                    // subtitle: Padding(
+                    //   padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+                    //   child: RichText(
+                    //     //locale: Locale(currLang!),
+                    //     textAlign: TextAlign.start,
+                    //     softWrap: true,
+                    //     text: TextSpan(children: [
+                    //       WidgetSpan(
+                    //           child: Text('${'address local'.tr}:  ${store.address}',
+                    //             overflow: TextOverflow.ellipsis,
+                    //             style: const TextStyle(
+                    //               fontSize: 13,
+                    //               height: 2,
+                    //             ),
+                    //           )
+                    //       ),
+                    //       const TextSpan(text: '\n'),
+                    //
+                    //       WidgetSpan(
+                    //           child: Text('${'tax number'.tr}:  ${store.tax}',
+                    //             style: const TextStyle(
+                    //               fontSize: 13,
+                    //               height: 1.5,
+                    //             ),
+                    //           )
+                    //       ),
+                    //       const TextSpan(text: '\n'),
+                    //
+                    //       WidgetSpan(
+                    //           child: Text('${'State'.tr}:  $acceptedState',
+                    //             maxLines: 2,
+                    //             overflow: TextOverflow.ellipsis,
+                    //             style: const TextStyle(
+                    //               fontSize: 13,
+                    //               height: 1.5,
+                    //             ),
+                    //           )
+                    //       ),
+                    //
+                    //     ]),
+                    //   ),
+                    // ),
 
-                            ///_raters
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.person, color: Colors.white70, size: 13), //person
+                    /// rating
+                    trailing: Container(
+                      color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 13.0, 8.0, 0.0),
+                        child: SizedBox(
+                          width: 80,
+                          height: 70,
+                          child: Column(
+                            //crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              ///rating
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  //stars.toStringAsFixed(1)
+                                  Text('${store.stars}', style: const TextStyle(fontSize: 20)),
+                                  const Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 25,
+                                  ),
+                                ],
+                              ), //star
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              ///_raters
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.person, color: Colors.white70, size: 13), //person
 
-                                Text("(${store.raterCount})", style: const TextStyle(fontSize: 11)),
-                              ],
-                            ),
-                          ],
+                                  Text("(${store.raterCount})", style: const TextStyle(fontSize: 11)),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

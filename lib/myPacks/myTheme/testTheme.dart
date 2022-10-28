@@ -90,7 +90,7 @@ ThemeData testTheme = ThemeData(
   listTileTheme: const ListTileThemeData(
     iconColor: Colors.deepOrange,
   ),
-  cursorColor: ColorsPersonalScheme.lightColor,
+  //cursorColor: ColorsPersonalScheme.lightColor,
   unselectedWidgetColor: ColorsPersonalScheme.lightColorShade4,
   dialogBackgroundColor: ColorsPersonalScheme.darkColor,
   backgroundColor: ColorsPersonalScheme.darkColor,

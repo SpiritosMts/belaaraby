@@ -1,5 +1,3 @@
-
-import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,6 +7,7 @@ import 'package:geolocator/geolocator.dart' as geo;
 import 'dart:async';
 import 'package:belaaraby/myPacks/myVoids.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:belaaraby/myPacks/myConstants.dart';
 
 
 void moveCamPosTo(gMapctr,double zoom,double lat, double lng) async {
@@ -58,98 +57,122 @@ storeLogo(String logoUrl,double size){
 
  jobTypeIcon(String jobType,double size) {
   String imagePath = '';
-  switch (jobType) {
-    case "متجر بقالة":
-      imagePath = 'assets/jobType/grocery.png';
-      break;
-    case "مطعم":
-      imagePath = 'assets/jobType/restaurant.png';
-      break;
-    case "حلويات":
-      imagePath = 'assets/jobType/candy.png';
-      break;
-    case "تجارة جملة":
-      imagePath = 'assets/jobType/jomla.png';
-      break;
-    case "سياحة وسفر":
-      imagePath = 'assets/jobType/plane.png';
-      break;
-    case "صيدلية":
-      imagePath = 'assets/jobType/pharmacy.png';
-      break;
-    case "طبیب":
-      imagePath = 'assets/jobType/doctor.png';
-      break;
-    case "محامي":
-      imagePath = 'assets/jobType/Attorney.png';
-      break;
-    case "محاسب":
-      imagePath = 'assets/jobType/accountant.png';
-      break;
-    case "ترجمان":
-      imagePath = 'assets/jobType/translator.png';
-      break;
-    case "نجار":
-      imagePath = 'assets/jobType/carpenter.png';
-      break;
-    case "حداد":
-      imagePath = 'assets/jobType/smith.png';
-      break;
-    case "لحام":
-      imagePath = 'assets/jobType/solderer.png';
-      break;
-    case "مزارع":
-      imagePath = 'assets/jobType/farmer.png';
-      break;
-    case "صاحب بنك":
-      imagePath = 'assets/jobType/bank.png';
-      break;
-    case "بيطري":
-      imagePath = 'assets/jobType/veterinary.png';
-      break;
-    case "صاحب تاكسي":
-      imagePath = 'assets/jobType/taxi.png';
-      break;
-    case "صيانة":
-      imagePath = 'assets/jobType/maintenance.png';
-      break;
-    case "بائع لحوم":
-      imagePath = 'assets/jobType/meat.png';
-      break;
-    case "زراعة":
-      imagePath = 'assets/jobType/plant.png';
-      break;
-    case "أساس منزلي":
-      imagePath = 'assets/jobType/home.png';
-      break;
-    case "مكتب توظيف":
-      imagePath = 'assets/jobType/office.png';
-      break;
-    case "تعليم":
-      imagePath = 'assets/jobType/education.png';
-      break;
-    case "الكترونيات":
-      imagePath = 'assets/jobType/electronics.png';
-      break;
-    case "معرض سيارة":
-      imagePath = 'assets/jobType/car.png';
-      break;
-    case "طباعة وتصميم":
-      imagePath = 'assets/jobType/design.png';
-      break;
-    case "حرفة يدوية":
-      imagePath = 'assets/jobType/Handicraft.png';
-      break;
-    case "مواد بناء":
-      imagePath = 'assets/jobType/Building.png';
-      break;
-    default:
-      imagePath = 'assets/jobType/grocery.png';
+
+  if(jobType==jobNames[1]){
+    imagePath = 'assets/jobType/grocery.png';
   }
+  else if(jobType==jobNames[2]){
+    imagePath = 'assets/jobType/restaurant.png';
+  }
+  else if(jobType==jobNames[3]){
+    imagePath = 'assets/jobType/candy.png';
+  }
+  else if(jobType==jobNames[4]){
+    imagePath = 'assets/jobType/jomla.png';
+  }
+  else if(jobType==jobNames[5]){
+    imagePath = 'assets/jobType/plane.png';
+  }
+  else if(jobType==jobNames[6]){
+    imagePath = 'assets/jobType/pharmacy.png';
+  }
+  else if(jobType==jobNames[7]){
+    imagePath = 'assets/jobType/doctor.png';
+  }
+  else if(jobType==jobNames[8]){
+    imagePath = 'assets/jobType/Attorney.png';
+  }
+  else if(jobType==jobNames[9]){
+    imagePath = 'assets/jobType/accountant.png';
+  }
+  else if(jobType==jobNames[10]){
+    imagePath = 'assets/jobType/translator.png';
+  }
+  else if(jobType==jobNames[11]){
+    imagePath = 'assets/jobType/carpenter.png';
+  }
+  else if(jobType==jobNames[12]){
+    imagePath = 'assets/jobType/smith.png';
+  }
+  else if(jobType==jobNames[13]){
+    imagePath = 'assets/jobType/solderer.png';
+  }
+  else if(jobType==jobNames[14]){
+    imagePath = 'assets/jobType/farmer.png';
+  }
+  else if(jobType==jobNames[15]){
+    imagePath = 'assets/jobType/bank.png';
+  }
+  else if(jobType==jobNames[16]){
+    imagePath = 'assets/jobType/veterinary.png';
+  }
+  else if(jobType==jobNames[17]){
+    imagePath = 'assets/jobType/taxi.png';
+  }
+  else if(jobType==jobNames[18]){
+    imagePath = 'assets/jobType/maintenance.png';
+  }
+  else if(jobType==jobNames[19]){
+    imagePath = 'assets/jobType/meat.png';
+  }
+  else if(jobType==jobNames[20]){
+    imagePath = 'assets/jobType/plant.png';
+  }
+  else if(jobType==jobNames[21]){
+    imagePath = 'assets/jobType/home.png';
+  }
+  else if(jobType==jobNames[22]){
+    imagePath = 'assets/jobType/office.png';
+  }
+  else if(jobType==jobNames[23]){
+    imagePath = 'assets/jobType/education.png';
+  }
+  else if(jobType==jobNames[24]){
+    imagePath = 'assets/jobType/electronics.png';
+  }
+  else if(jobType==jobNames[25]){
+    imagePath = 'assets/jobType/car.png';
+  }
+  else if(jobType==jobNames[26]){
+    imagePath = 'assets/jobType/design.png';
+  }
+  else if(jobType==jobNames[27]){
+    imagePath = 'assets/jobType/Handicraft.png';
+  }
+  else if(jobType==jobNames[28]){
+    imagePath = 'assets/jobType/Building.png';
+  }
+
+  else if(jobType==jobNames[29]){
+    imagePath = 'assets/jobType/carMaint.png';
+  }
+
+  else if(jobType==jobNames[30]){
+    imagePath = 'assets/jobType/bus.png';
+  }
+
+  else if(jobType==jobNames[31]){
+    imagePath = 'assets/jobType/hotel.png';
+  }
+
+  else if(jobType==jobNames[32]){
+    imagePath = 'assets/jobType/cannedFood.png';
+  }
+
+  else if(jobType==jobNames[33]){
+    imagePath = 'assets/jobType/eMarketing.png';
+  }
+  else if(jobType==jobNames[34]){
+    imagePath = 'assets/jobType/van.png';
+  }
+  else {
+    imagePath = 'assets/jobType/grocery.png';
+  }
+
+
 
   return Image.asset(
     imagePath,
-
     //fit: BoxFit.scaleDown,
     color: yellowColHex,
      height: size,

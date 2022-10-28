@@ -1,20 +1,15 @@
 
 
-
-
 import 'dart:async';
 import 'dart:io';
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:belaaraby/Home/homeView.dart';
 import 'package:belaaraby/main.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:belaaraby/auth/login_screen.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -193,35 +188,39 @@ class _VerifySigningInState extends State<VerifySigningIn> {
 
             ],
            ),
-      ///network img
-      // FutureBuilder<QuerySnapshot>(
-      //   future: adsColl.get(),
-      //   builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
-      //     if (snapshot.hasData) {
-      //
-      //       var ad = snapshot.data!.docs.first;
-      //       String adUrl = ad.get('adUrl');
-      //
-      //       return  adUrl!=''? Positioned(
-      //         bottom: -4,
-      //         child: Image.network(adUrl,
-      //           width: _width,
-      //           fit: BoxFit.cover,
-      //         ),
-      //       ):Container();
-      //     } else {
-      //       return  Container();
-      //     }
-      //   },
-      // ),
-          ///local img
-      Positioned(
-                bottom: -4,
-                child: Image.asset('assets/adImage.png',
-                  width: _width,
-                  fit: BoxFit.cover,
-                ),
-              )
+          ///ads online
+          Positioned(
+            bottom: -4,
+            child: FutureBuilder<QuerySnapshot>(
+              future: adsColl.get(),
+              builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasData) {
+
+                  var ad = snapshot.data!.docs.first;
+                  String adUrl = ad.get('adUrl');
+
+                  print('##  get ad_Url(Verif): "$adUrl"');
+
+                  return  adUrl!=''? Image.network(adUrl,
+                    width: 100.w ,
+                    fit: BoxFit.cover,
+                  ):Container();
+                } else {
+                  print('## Failed to load AD"');
+
+                  return  Container();
+                }
+              },
+            ),
+          ),
+          ///ads local
+      // Positioned(
+      //           bottom: -4,
+      //           child: Image.asset('assets/adImage.png',
+      //             width: _width,
+      //             fit: BoxFit.cover,
+      //           ),
+      //         )
 
         ],
       ),

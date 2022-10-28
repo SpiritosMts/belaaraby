@@ -11,7 +11,6 @@ import 'myPacks/myLocale/myLocale.dart';
 import 'myPacks/myLocale/myLocaleCtr.dart';
 import 'myPacks/myTheme/myTheme.dart';
 import 'myPacks/myTheme/myThemeCtr.dart';
-import 'tutoTest.dart';
 import 'verifyUserSignIn.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

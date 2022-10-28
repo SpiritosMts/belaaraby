@@ -5,6 +5,7 @@ import 'package:belaaraby/addEditStore/addStore/addStoreView.dart';
 import 'package:belaaraby/main.dart';
 import 'package:belaaraby/test.dart';
 import 'package:belaaraby/tutoCtr.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:belaaraby/myPacks/mapVoids.dart';
@@ -24,6 +25,7 @@ import 'package:belaaraby/auth/login_screen.dart';
 import 'package:belaaraby/auth/signup.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myVoids.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'homeCtr.dart';
 
@@ -480,13 +482,13 @@ class StoresMapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //super.build(context);
-    double width = MediaQuery.of(context).size.width;
+    //double width = MediaQuery.of(context).size.width;
     //double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: searchAppBar(context),
 
       /// change later
-      drawer: appDrawer(width),
+      drawer: appDrawer(100.w),
       body: Stack(
         children: [
           /// map
@@ -571,7 +573,7 @@ class StoresMapView extends StatelessWidget {
               child: Container(
                 color: blueColHex,
                 child: SizedBox(
-                  width: width,
+                  width: 100.w,
                   height: 50,
 
           ),
@@ -639,7 +641,7 @@ class StoresMapView extends StatelessWidget {
                 //print('slider updated');
                 return Positioned(
                   key: ttr.sliderKey,
-                  right: width/20,
+                  right: 100.w/20,
                   bottom: 0,
                   // right: 20,
                   // bottom: 20,
@@ -654,7 +656,7 @@ class StoresMapView extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 20),
                          // height: ,
-                          width: width/1.1,
+                          width: 100.w/1.1,
                           child: RotatedBox(
                             quarterTurns: 2,
                             child: Slider(
@@ -742,13 +744,36 @@ class StoresMapView extends StatelessWidget {
                   ),
                 );
               }),
-          ///ads
+          ///ads offline
+//           Positioned(
+//             top: -4,
+//             child: Image.network(
+// 'https://firebasestorage.googleapis.com/v0/b/belaaraby-61999.appspot.com/o/ads%2Fimage_picker221974145855096822.png?alt=media&token=48792fcc-5597-4526-a8a6-4ba903b42ec9',
+//               width: 100.w,
+//               fit: BoxFit.cover,
+//             ),
+//           ),
+          ///ads online
           Positioned(
             top: -4,
-            child: Image.network(
-              'https://firebasestorage.googleapis.com/v0/b/inarabiceuv1.appspot.com/o/users%2FJqH2HYXlF2h83wzr9P3D3RDbpw32%2Fuploads%2F1635930854325301.jpg?alt=media&token=5c72611b-e17f-4ac1-b321-3c559ba298e1',
-              width: width,
-              fit: BoxFit.cover,
+            child: FutureBuilder<QuerySnapshot>(
+              future: adsColl.get(),
+              builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasData) {
+
+                  var ad = snapshot.data!.docs.first;
+                  String adUrl = ad.get('adUrl');
+
+                  print('##  get ad_Url(Home): "$adUrl"');
+
+                  return  adUrl!=''? Image.network(adUrl,
+                    width: 100.w ,
+                    fit: BoxFit.cover,
+                  ):Container();
+                } else {
+                  return  Container();
+                }
+              },
             ),
           ),
           /// gps btn

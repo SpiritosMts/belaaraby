@@ -1,22 +1,5 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:path/path.dart' as path;
-import 'package:image_picker/image_picker.dart';
-import 'package:flutter/widgets.dart' as wig;
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:path_provider/path_provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
-import 'package:belaaraby/myPacks/myVoids.dart';
-import 'package:belaaraby/myPacks/firebase/fireBase.dart';
-import 'package:ionicons/ionicons.dart';
 
 class RadioPickerCtr extends GetxController {
   // Default Radio Button Item
@@ -31,118 +14,144 @@ class RadioPickerCtr extends GetxController {
     update();
   }
 
+
+
   List<RadioItem> radioList = [
     RadioItem(
       index: 1,
-      name: 'متجر بقالة',
+      name: jobNames[1],
     ),
     RadioItem(
       index: 2,
-      name: 'مطعم',
+      name: jobNames[2],
     ),
     RadioItem(
       index: 3,
-      name: 'حلويات',
+      name: jobNames[3],
     ),
     RadioItem(
       index: 4,
-      name: 'تجارة جملة',
+      name: jobNames[4],
     ),
     RadioItem(
       index: 5,
-      name: 'سياحة وسفر',
+      name: jobNames[5],
     ),
     RadioItem(
       index: 6,
-      name: 'صيدلية',
+      name: jobNames[6],
     ),
     RadioItem(
       index: 7,
-      name: 'طبیب',
+      name: jobNames[7],
     ),
     RadioItem(
       index: 8,
-      name: 'محامي',
+      name: jobNames[8],
     ),
     RadioItem(
       index: 9,
-      name: 'محاسب',
+      name: jobNames[9],
     ),
     RadioItem(
       index: 10,
-      name: 'ترجمان',
+      name: jobNames[10],
     ),
     RadioItem(
       index: 11,
-      name: 'الكترونيات',
+      name: jobNames[11],
     ),
     RadioItem(
       index: 12,
-      name: 'معرض سيارة',
+      name: jobNames[12],
     ),
     RadioItem(
       index: 13,
-      name: 'طباعة وتصميم',
+      name: jobNames[13],
     ),
     RadioItem(
       index: 14,
-      name: 'حرفة يدوية',
+      name: jobNames[14],
     ),
     RadioItem(
       index: 15,
-      name: 'نجار',
+      name: jobNames[15],
     ),
     RadioItem(
       index: 16,
-      name: 'حداد',
+      name: jobNames[16],
     ),
     RadioItem(
       index: 17,
-      name: 'لحام',
+      name: jobNames[17],
     ),
     RadioItem(
       index: 18,
-      name: 'مزارع',
+      name: jobNames[18],
     ),
     RadioItem(
       index: 19,
-      name: 'بيطري',
+      name: jobNames[19],
     ),
     RadioItem(
       index: 20,
-      name: 'مواد بناء',
+      name: jobNames[20],
     ),
     RadioItem(
       index: 21,
-      name: 'صاحب بنك',
+      name: jobNames[21],
     ),
     RadioItem(
       index: 22,
-      name: 'صاحب تاكسي',
+      name: jobNames[22],
     ),
     RadioItem(
       index: 23,
-      name: 'صيانة',
+      name: jobNames[23],
     ),
     RadioItem(
       index: 24,
-      name: 'بائع لحوم',
+      name: jobNames[24],
     ),
     RadioItem(
       index: 25,
-      name: 'زراعة',
+      name: jobNames[25],
     ),
     RadioItem(
       index: 26,
-      name: 'أساس منزلي',
+      name: jobNames[26],
     ),
     RadioItem(
       index: 27,
-      name: 'مكتب توظيف',
+      name: jobNames[27],
     ),
     RadioItem(
       index: 28,
-      name: 'تعليم',
+      name: jobNames[28],
+    ),
+    RadioItem(
+      index: 29,
+      name: jobNames[29],
+    ),
+    RadioItem(
+      index: 30,
+      name: jobNames[30],
+    ),
+    RadioItem(
+      index: 31,
+      name: jobNames[31],
+    ),
+    RadioItem(
+      index: 32,
+      name: jobNames[32],
+    ),
+    RadioItem(
+      index: 33,
+      name: jobNames[33],
+    ),
+    RadioItem(
+      index: 34,
+      name: jobNames[34],
     ),
   ];
 }
