@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:date_format/date_format.dart';
 
@@ -24,8 +25,7 @@ class _AddAdsViewState extends State<AddAdsView> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Ads management'.tr),
@@ -60,7 +60,7 @@ class _AddAdsViewState extends State<AddAdsView> with TickerProviderStateMixin {
               ),
             ),
 
-            SizedBox(height: height/4),
+            SizedBox(height: 25.h),
             ///ad image
             GetBuilder<AddAdsCtr>(
               builder: (ctr) => StreamBuilder<QuerySnapshot>(
@@ -92,12 +92,14 @@ class _AddAdsViewState extends State<AddAdsView> with TickerProviderStateMixin {
                       }
 
                       if ( adUrl != '') {
+                        /// 1560 * 240
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Image.network(
                             adUrl,
-                            width: width,
-                            fit: BoxFit.cover,
+                            //height: 100,
+                            width: 100.w,
+                            //fit: BoxFit.fitWidth,
                           ),
                         );
                       } else {
@@ -118,7 +120,7 @@ class _AddAdsViewState extends State<AddAdsView> with TickerProviderStateMixin {
                       );
                     }
                   } else {
-                    return Text('no connexion'.tr);
+                    return Text(''.tr);
                   }
                 },
               ),
