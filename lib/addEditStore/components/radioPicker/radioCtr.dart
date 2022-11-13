@@ -1,3 +1,4 @@
+import 'package:belaaraby/myPacks/jobType.dart';
 import 'package:get/get.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 

@@ -6,7 +6,7 @@ import 'package:belaaraby/models/itemModel.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
 import 'package:belaaraby/myPacks/myVoids.dart';
-import 'package:belaaraby/myPacks/storeVoids.dart';
+import 'package:belaaraby/myPacks/storeComponents/storeVoids.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

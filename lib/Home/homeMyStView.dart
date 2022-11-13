@@ -376,6 +376,7 @@ class _MyStoresViewState extends State<MyStoresView> {
         //
         ownerID: doc.get('ownerID'),
         ownerName: doc.get('ownerName'),
+        ownerEmail: doc.get('ownerEmail'),
         //
         raterCount: doc.get("raterCount"),
         stars: doc.get("stars"),

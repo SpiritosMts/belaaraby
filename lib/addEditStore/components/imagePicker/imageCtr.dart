@@ -114,7 +114,7 @@ class ImagePickerCtr extends GetxController {
   }
 
   proposeDeleteLogo(context) {
-    MyVoids().shownoHeader(context).then((value) {
+    MyVoids().showNoHeader(context).then((value) {
       if (value) {
         logoDeleted = true;
 
@@ -129,7 +129,7 @@ class ImagePickerCtr extends GetxController {
   }
 
   proposeDeleteImgFromImages(context, imageFileList, index) {
-    MyVoids().shownoHeader(context).then((value) async {
+    MyVoids().showNoHeader(context).then((value) async {
       if (value) {
         ///delete from storage
         deleteFileByUrlFromStorage(imageFileList[index]);

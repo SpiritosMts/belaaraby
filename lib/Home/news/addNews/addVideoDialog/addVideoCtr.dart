@@ -31,7 +31,7 @@ class AddVideoCtr extends GetxController {
     String url = videoUrlController.text;
     String date = todayToString();
     if (formkeyItem.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
       Map<String,dynamic> videoProps ={
         'title':title,

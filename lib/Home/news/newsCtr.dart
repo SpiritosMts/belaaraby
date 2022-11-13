@@ -103,7 +103,7 @@ class NewsCtr extends GetxController{
 
   ///delete
   deletePost(ctx,id) {
-    MyVoids().shownoHeader(ctx, txt: 'are you sure you want to delete this post?'.tr).then((value) {
+    MyVoids().showNoHeader(ctx, txt: 'are you sure you want to delete this post?'.tr).then((value) {
       if (value) {
         /// delete garage from coll
         postsColl.doc(id).delete().then((value) async {
@@ -122,7 +122,7 @@ class NewsCtr extends GetxController{
     });
   }
   deleteVideo(ctx,id) {
-    MyVoids().shownoHeader(ctx, txt: 'are you sure you want to delete this video?'.tr).then((value) {
+    MyVoids().showNoHeader(ctx, txt: 'are you sure you want to delete this video?'.tr).then((value) {
       if (value) {
         /// delete garage from coll
         postsColl.doc(id).delete().then((value) async {

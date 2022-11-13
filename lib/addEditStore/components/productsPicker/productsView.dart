@@ -1,23 +1,13 @@
-import 'dart:io';
-
-import 'package:belaaraby/addEditStore/components/productsPicker/addCateg/addCategDialog/addCategView.dart';
-import 'package:belaaraby/addEditStore/components/productsPicker/addCateg/categ/categView.dart';
-import 'package:belaaraby/addEditStore/components/productsPicker/addItem/item/itemView.dart';
 import 'package:belaaraby/models/itemModel.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
-import 'package:belaaraby/myPacks/myVoids.dart';
-import 'package:belaaraby/myPacks/storeVoids.dart';
+import 'package:belaaraby/myPacks/storeComponents/storeVoids.dart';
 import 'package:belaaraby/tutoCtr.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:belaaraby/myPacks/cards.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'productsCtr.dart';

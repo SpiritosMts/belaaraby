@@ -36,7 +36,7 @@ class UpdateItemCtr extends GetxController {
 
   }
   proposeDeleteLogo(context) {
-    MyVoids().shownoHeader(context).then((value) {
+    MyVoids().showNoHeader(context).then((value) {
       if (value) {
         ///delete from cloud
         deleteOldItemImage(context,pc.st.id!);
@@ -94,7 +94,7 @@ class UpdateItemCtr extends GetxController {
     String newItemPrice = itemPriceController.text;
     String newItemDesc = itemDescController.text;
     if (formkeyItem.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
 
 

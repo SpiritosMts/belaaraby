@@ -16,6 +16,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:belaaraby/auth/verifyEmail.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -27,19 +28,15 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path_provider/path_provider.dart';
 
-showLoadingDia(ctx) {
+showSimpleLoading(ctx) {
   showDialog(
 
       barrierDismissible: false,
       context: ctx,
       builder: (ctx) {
-        double width = MediaQuery.of(ctx).size.width;
-        double height = MediaQuery.of(ctx).size.height;
         return AlertDialog(
           backgroundColor: blueColHex2,
-
-
-          insetPadding: EdgeInsets.symmetric(horizontal: width/3,vertical: height/2.6),
+          insetPadding: EdgeInsets.symmetric(horizontal: 100.w/3,vertical: 100.h/2.6),
           //contentPadding:EdgeInsets.symmetric(horizontal: width/3) ,
 
 
@@ -67,6 +64,7 @@ showLoadingDia(ctx) {
         );
       });
 }
+/// get date of today (yyyy-MM-dd)
 String todayToString(){
   //final formattedStr = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' ', HH, ':' nn]);
 
@@ -116,7 +114,6 @@ List<MarkerData> mapToListMarkerData(Map<String, MarkerData> map) {
   return map.entries.map((entry) => entry.value).toList();
 }
 
-//general
 List mapToList(Map map) {
   List list = [];
   map.forEach((k, v) => list.add(v));
@@ -141,8 +138,6 @@ TimeOfDay stringToTimeOfDay(stringTime) {
 }
 
 class MyVoids {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  final usersColl = FirebaseFirestore.instance.collection(usersCollName);
 
   Future<dynamic> showLoading(ctx) {
     return AwesomeDialog(
@@ -252,7 +247,7 @@ class MyVoids {
     ).show();
   }
 
-  Future<bool> shownoHeader(ctx, {String? txt,String? btnOkText='delete',Color btnOkColor=Colors.red}) async {
+  Future<bool> showNoHeader(ctx, {String? txt,String? btnOkText='delete',Color btnOkColor=Colors.red}) async {
     bool shouldDelete = false;
 
     await AwesomeDialog(

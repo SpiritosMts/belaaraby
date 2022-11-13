@@ -12,6 +12,23 @@ import 'package:google_fonts/google_fonts.dart';
 
 ////////////////////// TEST //////////////////////////////
 
+
+class TestScreen extends StatefulWidget {
+  const TestScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(),
+    );
+  }
+}
+
  addToItems() async {
 
   List<DocumentSnapshot> storesData = await getDocumentsByColl(storesColl);

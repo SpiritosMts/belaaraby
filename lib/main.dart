@@ -11,7 +11,7 @@ import 'myPacks/myLocale/myLocale.dart';
 import 'myPacks/myLocale/myLocaleCtr.dart';
 import 'myPacks/myTheme/myTheme.dart';
 import 'myPacks/myTheme/myThemeCtr.dart';
-import 'verifyUserSignIn.dart';
+import 'loadingScreen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 SharedPreferences? sharedPrefs;
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
 
             debugShowCheckedModeBanner: false,
-            title: 'InArabic',
+            title: 'بالعربي',
 
             //theme: themeCtr.initTheme,
             theme: customLightTheme,
@@ -53,8 +53,9 @@ class MyApp extends StatelessWidget {
             initialBinding: GetxBinding(),
             initialRoute: '/',
             getPages: [
-              GetPage(name: '/', page: () => VerifySigningIn()),
-              GetPage(name: '/VerifySigningIn', page: () => VerifySigningIn()),
+              GetPage(name: '/', page: () => LoadingScreen()),
+              GetPage(name: '/LoadingScreen', page: () => LoadingScreen()),
+              GetPage(name: '/ScreenManager', page: () => ScreenManager()),
             ],
           );
         }
@@ -86,14 +87,13 @@ class _ScreenManagerState extends State<ScreenManager> {
           //     child: Text('sign out')),
           TextButton(
               onPressed: () {
-                Get.to(() => VerifySigningIn());
+                Get.to(() => LoadingScreen());
               },
-              child: Text('VerifySigningIn')),
+              child: Text('LoadingScreen')),
 
           TextButton(
               onPressed: () {
-                print('## Test Pressed');
-
+                Get.to(() => TestScreen());
 
               },
               child: Text('test')),

@@ -4,9 +4,11 @@ import 'package:belaaraby/Home/selectedStore/categ/itemViewRo.dart';
 import 'package:belaaraby/models/brUserModel.dart';
 import 'package:belaaraby/models/itemModel.dart';
 import 'package:belaaraby/models/storeModel.dart';
+import 'package:belaaraby/myPacks/cards.dart';
 import 'package:belaaraby/myPacks/mapVoids.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
-import 'package:belaaraby/myPacks/storeVoids.dart';
+import 'package:belaaraby/myPacks/storeComponents/shcedule.dart';
+import 'package:belaaraby/myPacks/storeComponents/storeVoids.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +44,7 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+
     return Material(
       child: DefaultTabController(
         length: 3,
@@ -266,7 +267,8 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                             )),
                           ],
                         ),
-                        /// info (read only)
+
+                        ///>>>> General info (read only)
                         if (gc.currentTitle == gc.titleList[0])
                           Column(
                             children: [
@@ -280,65 +282,65 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                                 height: 15,
                               ),
 
-                              ///logo_tax
+                              ///logo_&_tax
                              if(gc.isAdmin) Column(
                                 children: [
 
                                   ///show logo
-                                  Column(
-                                    children: [
-                                      Row(
-                                        // crossAxisAlignment: CrossAxisAlignment.start,
-                                        // mainAxisAlignment: MainAxisAlignment.start,
-                                        // mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                          const SizedBox(
-                                            width: 20,
-                                          ),
-                                          const Icon(
-                                            Icons.image_outlined,
-                                          ),
-                                          const SizedBox(
-                                            width: 20,
-                                          ),
-                                          Flexible(
-                                            child: Container(
-                                              //padding: const EdgeInsets.only(right:25.0),
-                                              width: MediaQuery.of(context).size.width * 0.6,
-                                              child: RichText(
-                                                locale: Locale(currLang!),
-                                                textAlign: TextAlign.start,
-                                                softWrap: true,
-                                                text: TextSpan(children: [
-                                                  TextSpan(
-                                                    text: '${'show logo'.tr}:',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                  const TextSpan(text: '  '),
-                                                  WidgetSpan(
-                                                    child:  SizedBox(
-                                                      height: 15,
-                                                      // color: Colors.redAccent,
-                                                      child: Switch(
-                                                        inactiveTrackColor: Colors.white24,
-                                                        value: gc.localShowLogo,
-                                                        onChanged: (val) {
-                                                          gc.switchLogo(val);
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ]),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 15,
-                                      ),
-                                    ],
-                                  ),
+                                  // Column(
+                                  //   children: [
+                                  //     Row(
+                                  //       // crossAxisAlignment: CrossAxisAlignment.start,
+                                  //       // mainAxisAlignment: MainAxisAlignment.start,
+                                  //       // mainAxisSize: MainAxisSize.min,
+                                  //       children: <Widget>[
+                                  //         const SizedBox(
+                                  //           width: 20,
+                                  //         ),
+                                  //         const Icon(
+                                  //           Icons.image_outlined,
+                                  //         ),
+                                  //         const SizedBox(
+                                  //           width: 20,
+                                  //         ),
+                                  //         Flexible(
+                                  //           child: Container(
+                                  //             //padding: const EdgeInsets.only(right:25.0),
+                                  //             width: MediaQuery.of(context).size.width * 0.6,
+                                  //             child: RichText(
+                                  //               locale: Locale(currLang!),
+                                  //               textAlign: TextAlign.start,
+                                  //               softWrap: true,
+                                  //               text: TextSpan(children: [
+                                  //                 TextSpan(
+                                  //                   text: '${'show logo'.tr}:',
+                                  //                   style: TextStyle(fontSize: 10),
+                                  //                 ),
+                                  //                 const TextSpan(text: '  '),
+                                  //                 WidgetSpan(
+                                  //                   child:  SizedBox(
+                                  //                     height: 15,
+                                  //                     // color: Colors.redAccent,
+                                  //                     child: Switch(
+                                  //                       inactiveTrackColor: Colors.white24,
+                                  //                       value: gc.localShowLogo,
+                                  //                       onChanged: (val) {
+                                  //                         gc.switchLogo(val);
+                                  //                       },
+                                  //                     ),
+                                  //                   ),
+                                  //                 ),
+                                  //               ]),
+                                  //             ),
+                                  //           ),
+                                  //         ),
+                                  //       ],
+                                  //     ),
+                                  //     const SizedBox(
+                                  //       height: 15,
+                                  //     ),
+                                  //   ],
+                                  // ),
                                   ///store_tax
 
                                   Column(
@@ -350,6 +352,7 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                                           ),
                                           const Icon(
                                             Icons.numbers,
+                                            color: Colors.red,
                                           ),
                                           const SizedBox(
                                             width: 20,
@@ -388,8 +391,46 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                                 ],
                               ),
 
+                              ///store_desc
+                              if (st.jobDesc != '')
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(
+                                      Icons.description,
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    Flexible(
+                                      child: Container(
+                                        //padding: const EdgeInsets.only(right:25.0),
+                                        width: MediaQuery.of(context).size.width * 0.6,
+                                        child: RichText(
+                                          locale: Locale(currLang!),
+                                          textAlign: TextAlign.start,
+                                          softWrap: true,
+                                          text: TextSpan(children: [
+                                            TextSpan(
+                                              text: '${st.jobDesc}',
+                                              style: const TextStyle(
+                                                height: 1.5,
+                                              ),
+                                            ),
+                                          ]),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              const SizedBox(
+                                height: 15,
+                              ),
 
-                              ///full adress
+                              ///full_adress
                               Row(
                                 children: <Widget>[
                                   const SizedBox(
@@ -426,41 +467,41 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                                 height: 15,
                               ),
 
-                              ///store_desc
-                              if (st.jobDesc != '')
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    const Icon(
-                                      Icons.description,
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        //padding: const EdgeInsets.only(right:25.0),
-                                        width: MediaQuery.of(context).size.width * 0.6,
-                                        child: RichText(
-                                          locale: Locale(currLang!),
-                                          textAlign: TextAlign.start,
-                                          softWrap: true,
-                                          text: TextSpan(children: [
-                                            TextSpan(
-                                              text: '${st.jobDesc}',
-                                              style: const TextStyle(
-                                                height: 1.5,
-                                              ),
+
+
+                              ///owner_email
+                              Row(
+                                children: <Widget>[
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  const Icon(
+                                    Icons.alternate_email,
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Flexible(
+                                    child: Container(
+                                      //padding: const EdgeInsets.only(right:25.0),
+                                      width: MediaQuery.of(context).size.width * 0.6,
+                                      child: RichText(
+                                        locale: Locale(currLang!),
+                                        textAlign: TextAlign.start,
+                                        softWrap: true,
+                                        text: TextSpan(children: [
+                                          TextSpan(
+                                            text: '${st.ownerEmail}',
+                                            style: const TextStyle(
+                                              height: 1.5,
                                             ),
-                                          ]),
-                                        ),
+                                          ),
+                                        ]),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                               const SizedBox(
                                 height: 15,
                               ),
@@ -513,13 +554,13 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                                 ),
                             ],
                           ),
-                        /// products (read only)
+                        ///>>>> products (read only)
                         if (gc.currentTitle == gc.titleList[1])
                           SafeArea(
                             child: GetBuilder<SelectedStCtr>(
                               builder: (ctr) => Column(children: [
                                 SizedBox(
-                                  height: height / 20,
+                                  height: 100.h / 20,
                                 ),
                                 ///promos
                                 if(st.promos!.isNotEmpty)
@@ -614,7 +655,7 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                               ]),
                             ),
                           ),
-                        ///comments
+                        ///>>>> comments
                         if (gc.currentTitle == gc.titleList[2])
                           futureCommentBox(st.id),
                         const SizedBox(
@@ -638,6 +679,7 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                 ),
 
                 ///rate btn
+                !(gc.isAdmin)?
                 Positioned(
                   height: 40,
                   width: 110,
@@ -679,7 +721,43 @@ class _SelectedStViewState extends State<SelectedStView> with TickerProviderStat
                       ),
                     ),
                   ),
-                ),
+                ): (st.accepted == 'notYet')?
+                Positioned(
+                  height: 40,
+                  width: 110,
+                  bottom: 19,
+                  left: 10,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 0.0),
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        shape: RoundedRectangleBorder(
+                          //side: const BorderSide(color: blueColHex, width: 2, style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(100)),
+                      ),
+                      onPressed: () async {
+                        approveStore(st.id);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.check,
+                            color: blueColHex,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            "Approve".tr,
+                            style: const TextStyle(color: blueColHex),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ):Container(),
 
                 ///call btn
                 // Positioned(

@@ -46,7 +46,7 @@ class UpdateCategCtr extends GetxController {
   }
 
   proposeDeleteImg(context) {
-    MyVoids().shownoHeader(context).then((value) {
+    MyVoids().showNoHeader(context).then((value) {
       if (value) {
         ///delete from cloud
         deleteOldCategImage(context,pc.st.id!);
@@ -101,7 +101,7 @@ class UpdateCategCtr extends GetxController {
     String newCategName = categNameController.text;
 
     if (formkeyItem.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
 
 

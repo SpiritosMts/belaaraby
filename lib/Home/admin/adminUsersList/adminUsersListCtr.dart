@@ -4,7 +4,7 @@ import 'package:belaaraby/models/storeModel.dart';
 import 'package:belaaraby/myPacks/firebase/fireBase.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myVoids.dart';
-import 'package:belaaraby/myPacks/storeVoids.dart';
+import 'package:belaaraby/myPacks/storeComponents/storeVoids.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class AdminUsersListCtr extends GetxController {
   swicherMap[userId]=val;
   update();
   if(val==true){
-    MyVoids().shownoHeader(ctx, txt: 'are you sure you want to give this user full control'.tr,btnOkText: 'Yes',btnOkColor: Colors.green).then((value) {
+    MyVoids().showNoHeader(ctx, txt: 'are you sure you want to give this user full control'.tr,btnOkText: 'Yes',btnOkColor: Colors.green).then((value) {
       if (value) {
         /// decline store from coll
         usersColl.doc(userId).update({
@@ -121,7 +121,7 @@ class AdminUsersListCtr extends GetxController {
 
 
   deleteUser(ctx,BrUser user){
-    MyVoids().shownoHeader(ctx, txt: '${'are you sure you want to remove this user'.tr}\n"${user.name}" ${'with his stores'.tr} ؟ ',).then((value) {
+    MyVoids().showNoHeader(ctx, txt: '${'are you sure you want to remove this user'.tr}\n"${user.name}" ${'with his stores'.tr} ؟ ',).then((value) {
       if (value) {
         /// delete user from coll
         usersColl.doc(user.id).delete().then((value) async {

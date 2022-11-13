@@ -1,4 +1,4 @@
-
+/// show loading (while verifying user account)
 
 import 'dart:async';
 import 'dart:io';
@@ -16,14 +16,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'models/brUserModel.dart';
 import 'myPacks/myVoids.dart';
 
-class VerifySigningIn extends StatefulWidget {
-  const VerifySigningIn({Key? key}) : super(key: key);
+class LoadingScreen extends StatefulWidget {
+  const LoadingScreen({Key? key}) : super(key: key);
 
   @override
-  State<VerifySigningIn> createState() => _VerifySigningInState();
+  State<LoadingScreen> createState() => _VerifySigningInState();
 }
 
-class _VerifySigningInState extends State<VerifySigningIn> {
+class _VerifySigningInState extends State<LoadingScreen> {
 
   // StreamSubscription<User?>? user;
   //BrUser cUser = BrUser();

@@ -34,7 +34,7 @@ class AddAdsCtr extends GetxController{
 
 
   proposeDeleteAd(context) {
-    MyVoids().shownoHeader(context,txt: 'Are you sure you want to delete this Ad'.tr).then((value) async {
+    MyVoids().showNoHeader(context,txt: 'Are you sure you want to delete this Ad'.tr).then((value) async {
       if (value) {
         ///delete from cloud
         await adsColl.doc('adverID').update({

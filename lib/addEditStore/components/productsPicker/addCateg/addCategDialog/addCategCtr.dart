@@ -38,7 +38,7 @@ class AddCategCtr extends GetxController {
     String newCategName = categController.text;
 
     if (formkeyCateg.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
       storesColl.doc(id).get().then((DocumentSnapshot documentSnapshot) async {
         if (documentSnapshot.exists) {

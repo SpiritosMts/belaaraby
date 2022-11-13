@@ -1,10 +1,11 @@
 import 'package:belaaraby/addEditStore/components/productsPicker/productsCtr.dart';
 import 'package:belaaraby/models/itemModel.dart';
+import 'package:belaaraby/myPacks/currencies.dart';
 import 'package:belaaraby/myPacks/firebase/fireBase.dart';
 import 'package:belaaraby/myPacks/myConstants.dart';
 import 'package:belaaraby/myPacks/myTheme/myTheme.dart';
 import 'package:belaaraby/myPacks/myVoids.dart';
-import 'package:belaaraby/myPacks/storeVoids.dart';
+import 'package:belaaraby/myPacks/storeComponents/storeVoids.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,7 +58,7 @@ class AddItemCtr extends GetxController {
     String newItemPrice = itemPriceController.text;
     String newItemDesc = itemDescController.text;
     if (formkeyItem.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
       storesColl.doc(id).get().then((DocumentSnapshot documentSnapshot) async {
       if (documentSnapshot.exists) {

@@ -88,6 +88,8 @@ dependencies:
   flutter_screenutil: any
   tutorial_coach_mark: ^1.2.4
 
+  cached_network_image: ^3.2.2
+
   selectable: ^0.2.3
   flutter_automation: ^2.0.0
   change_app_package_name: ^1.1.0

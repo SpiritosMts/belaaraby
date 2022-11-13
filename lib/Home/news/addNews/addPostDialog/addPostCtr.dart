@@ -38,7 +38,7 @@ class AddPostCtr extends GetxController {
     String date = todayToString();
 
     if (formkeyItem.currentState!.validate()) {
-      showLoadingDia(ctx);
+      showSimpleLoading(ctx);
 
       Map<String,dynamic> postProps ={
         'title':title,
